@@ -14,4 +14,9 @@ export class TimeSlotsService {
 
     return this.timeRepo.create_time(data);
   }
+
+  async get_Time(providerId: string) {
+   
+    return this.timeRepo.getTimes_Provider(providerId);
+  }
 }

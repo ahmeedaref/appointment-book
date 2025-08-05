@@ -133,6 +133,29 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get timeSlots for provider ",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/time-slots/68923593bd00c2668de21fe0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots",
+						"68923593bd00c2668de21fe0"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
