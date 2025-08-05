@@ -101,6 +101,38 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "create time",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"providerId\":\"68923593bd00c2668de21fe0\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"9-8-2025\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\"9:15 pm\",\r\n    \"endTime\":\"9:30 pm\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/time-slots/create-timeSlots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots",
+						"create-timeSlots"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
