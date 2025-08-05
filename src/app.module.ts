@@ -7,6 +7,9 @@ import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { ConfigService } from '@nestjs/config';
+import { TimeSlotsController } from './time_slots/time_slots.controller';
+import { TimeSlotsService } from './time_slots/time_slots.service';
+import { TimeSlotsModule } from './time_slots/time_slots.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,8 +25,9 @@ import { ConfigService } from '@nestjs/config';
       },
     }),
     AuthModule,
+    TimeSlotsModule,
   ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController, AuthController, TimeSlotsController],
+  providers: [AppService, AuthService, TimeSlotsService],
 })
 export class AppModule {}
