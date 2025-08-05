@@ -2,6 +2,7 @@ import {
   Injectable,
   BadRequestException,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Mongoose } from 'mongoose';
@@ -29,14 +30,34 @@ export class time_Repo {
     return !!overLapp;
   }
 
-  async create_time(data: createtime_dto) {
+  async create_time(data: createtime_dto, requestUser: any) {
+    const { providerId } = data;
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
+    }
+    if (requestUser.id !== providerId) {
+      throw new UnauthorizedException(
+        'Not Allowed to create time slots to other',
+      );
+    }
     const time = new this.timeModel(data);
     return time.save();
   }
 
-  async getTimes_Provider(providerId: string) {
+  async getTimes_Provider(
+    Id: string,
+    requestUser: any,
+  ): Promise<time_Document[]> {
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
+    }
+    if (requestUser.id !== Id) {
+      throw new UnauthorizedException(
+        'You are not allowed to Viwe other timeSlots',
+      );
+    }
     const time = await this.timeModel.find({
-      providerId: new mongoose.Types.ObjectId(providerId),
+      providerId: new mongoose.Types.ObjectId(Id),
     });
 
     if (!time) {
@@ -46,14 +67,26 @@ export class time_Repo {
     return time;
   }
 
-  async updateTime_slots(timeId: string, data: updateTime_dto) {
-    const existingSlot = await this.timeModel.findById(timeId);
+  async updateTime_slots(
+    timeId: string,
+    data: updateTime_dto,
+    requestUser: any,
+  ) {
+    const time = await this.timeModel.findById(timeId);
 
-    if (!existingSlot) {
+    if (!time) {
       throw new NotFoundException('Time slot not found');
     }
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
+    }
+    if (requestUser.id !== time.providerId.toString()) {
+      throw new UnauthorizedException(
+        'You are not allowed to Update other timeSlots',
+      );
+    }
 
-    const providerId = existingSlot.providerId;
+    const providerId = time.providerId;
 
     if (data.startTime || data.endTime || data.Date) {
       const isOverlapping = await this.timeModel.findOne({
@@ -83,5 +116,23 @@ export class time_Repo {
     );
 
     return { message: 'updated successfully', updateSlot };
+  }
+
+  async Delete_time(id: string, requestUser: any) {
+    const time = await this.timeModel.findById(id);
+    if (!time) {
+      throw new NotFoundException('Not found time slot');
+    }
+    if (!requestUser) {
+      throw new UnauthorizedException('User Not authorized');
+    }
+    if (requestUser.id !== time.providerId.toString()) {
+      throw new UnauthorizedException(
+        'You are not allowed to Delete other timeSlots',
+      );
+    }
+
+    await this.timeModel.findByIdAndDelete(id);
+    return { message: 'Deleted successfully' };
   }
 }

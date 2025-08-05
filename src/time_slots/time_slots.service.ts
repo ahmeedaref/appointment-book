@@ -6,21 +6,24 @@ import { updateTime_dto } from './Dtos/update-time-dto';
 export class TimeSlotsService {
   constructor(private readonly timeRepo: time_Repo) {}
 
-  async createTime(data: createtime_dto) {
+  async createTime(data: createtime_dto, requestUser: any) {
     const isOverLapp = await this.timeRepo.isOverlapping(data);
     if (isOverLapp) {
       throw new BadRequestException('This time slot overlaps with another.');
     }
 
-    return this.timeRepo.create_time(data);
+    return this.timeRepo.create_time(data, requestUser);
   }
 
-  async get_Time(providerId: string) {
-    return this.timeRepo.getTimes_Provider(providerId);
+  async get_Time(providerId: string, requestUser: any) {
+    return this.timeRepo.getTimes_Provider(providerId, requestUser);
   }
 
-    async update_time(timeId: string, data: updateTime_dto) {
-     
-    return this.timeRepo.updateTime_slots(timeId, data);
+  async update_time(timeId: string, data: updateTime_dto, requestUser: any) {
+    return this.timeRepo.updateTime_slots(timeId, data, requestUser);
+  }
+
+  async delete_Time(timeId, requestUser: any) {
+    return this.timeRepo.Delete_time(timeId, requestUser);
   }
 }

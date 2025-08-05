@@ -10,6 +10,8 @@ import { ConfigService } from '@nestjs/config';
 import { TimeSlotsController } from './time_slots/time_slots.controller';
 import { TimeSlotsService } from './time_slots/time_slots.service';
 import { TimeSlotsModule } from './time_slots/time_slots.module';
+import { Auth_validate } from './Guards/validate-Token';
+import { JwtService } from '@nestjs/jwt';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,6 +30,12 @@ import { TimeSlotsModule } from './time_slots/time_slots.module';
     TimeSlotsModule,
   ],
   controllers: [AppController, AuthController, TimeSlotsController],
-  providers: [AppService, AuthService, TimeSlotsService],
+  providers: [
+    AppService,
+    AuthService,
+    TimeSlotsService,
+    Auth_validate,
+    JwtService,
+  ],
 })
 export class AppModule {}
