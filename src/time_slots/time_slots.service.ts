@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { time_Repo } from './time-Repo';
 import { createtime_dto } from './Dtos/create-time-dto';
-
+import { updateTime_dto } from './Dtos/update-time-dto';
 @Injectable()
 export class TimeSlotsService {
   constructor(private readonly timeRepo: time_Repo) {}
@@ -16,7 +16,11 @@ export class TimeSlotsService {
   }
 
   async get_Time(providerId: string) {
-   
     return this.timeRepo.getTimes_Provider(providerId);
+  }
+
+    async update_time(timeId: string, data: updateTime_dto) {
+     
+    return this.timeRepo.updateTime_slots(timeId, data);
   }
 }

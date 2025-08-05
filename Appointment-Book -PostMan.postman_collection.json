@@ -136,12 +136,24 @@
 		},
 		{
 			"name": "Get timeSlots for provider ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:8080/time-slots/68923593bd00c2668de21fe0",
 					"protocol": "http",
@@ -152,6 +164,38 @@
 					"path": [
 						"time-slots",
 						"68923593bd00c2668de21fe0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update time slots",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Date\":\"9-8-2025\",\r\n\"startTime\":\"21:00\",\r\n\"endTime\":\"21:30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/time-slots/689248717e448c7ce86ca9c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots",
+						"689248717e448c7ce86ca9c9"
 					]
 				}
 			},

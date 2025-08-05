@@ -7,8 +7,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Mongoose } from 'mongoose';
 import { createtime_dto } from './Dtos/create-time-dto';
 import { time_Document } from './schema/schema-time';
-import { Types } from 'mongoose';
 import mongoose from 'mongoose';
+import { updateTime_dto } from './Dtos/update-time-dto';
 @Injectable()
 export class time_Repo {
   constructor(
@@ -44,5 +44,44 @@ export class time_Repo {
     }
 
     return time;
+  }
+
+  async updateTime_slots(timeId: string, data: updateTime_dto) {
+    const existingSlot = await this.timeModel.findById(timeId);
+
+    if (!existingSlot) {
+      throw new NotFoundException('Time slot not found');
+    }
+
+    const providerId = existingSlot.providerId;
+
+    if (data.startTime || data.endTime || data.Date) {
+      const isOverlapping = await this.timeModel.findOne({
+        providerId: providerId,
+        Date: data.Date,
+        _id: { $ne: timeId },
+        $or: [
+          {
+            startTime: { $lt: data.endTime },
+            endTime: { $gt: data.startTime },
+          },
+        ],
+      });
+
+      if (isOverlapping) {
+        throw new BadRequestException(
+          'This time slot overlaps with an existing one',
+        );
+      }
+    }
+    const updateSlot = await this.timeModel.findByIdAndUpdate(
+      timeId,
+      { $set: data },
+      {
+        new: true,
+      },
+    );
+
+    return { message: 'updated successfully', updateSlot };
   }
 }
