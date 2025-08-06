@@ -16,6 +16,7 @@ import { check_token } from 'src/Guards/check-Token';
 import { check_provider } from 'src/Guards/check-Provider';
 import { Auth_validate } from '../Guards/validate-Token';
 import { JwtService } from '@nestjs/jwt';
+
 @Module({
   imports: [
     MongooseModule.forFeature([

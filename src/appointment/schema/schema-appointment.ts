@@ -16,7 +16,7 @@ export enum App_status {
 
 export const appointment_Schema = new Schema<appointment_Document>({
   providerId: { type: Schema.Types.ObjectId, ref: 'Auth', required: true },
-  Date: { type: String, requied: true },
+  Date: { type: String, required: true },
   duration: { type: String, required: true },
   createdBy: { type: Schema.Types.ObjectId, ref: 'timeSlots', required: true },
   status: {

@@ -10,7 +10,6 @@ import mongoose, { Model } from 'mongoose';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
 import { App_status, appointment_Document } from './schema/schema-appointment';
 import { time_Document } from 'src/time_slots/schema/schema-time';
-import { updateTime_dto } from 'src/time_slots/Dtos/update-time-dto';
 
 @Injectable()
 export class appointment_Repo {
@@ -124,5 +123,22 @@ export class appointment_Repo {
 
     await this.appointModel.findByIdAndDelete(id);
     return { message: 'Deleted Appointment Successfully' };
+  }
+
+  async findAppointmentAtDateRange(
+    start: Date,
+    end: Date,
+  ): Promise<appointment_Document[]> {
+    const date_range = await this.appointModel
+      .find({
+        Date: {
+          $gt: start,
+          $lt: end,
+        },
+        status: App_status.Booked,
+      })
+      .populate<{ BookedBy: any }>('BookedBy');
+
+    return date_range;
   }
 }

@@ -15,6 +15,9 @@ import { JwtService } from '@nestjs/jwt';
 import { AppointmentController } from './appointment/appointment.controller';
 import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentModule } from './appointment/appointment.module';
+import { ScheduleModule } from '@nestjs/schedule';
+import { EmailService } from './appointment/Email/email.service';
+import { ReminderCronService } from './appointment/cron/Remainder.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -29,11 +32,17 @@ import { AppointmentModule } from './appointment/appointment.module';
         return { uri };
       },
     }),
+    ScheduleModule.forRoot(),
     AuthModule,
     TimeSlotsModule,
     AppointmentModule,
   ],
-  controllers: [AppController, AuthController, TimeSlotsController, AppointmentController],
+  controllers: [
+    AppController,
+    AuthController,
+    TimeSlotsController,
+    AppointmentController,
+  ],
   providers: [
     AppService,
     AuthService,
@@ -41,6 +50,8 @@ import { AppointmentModule } from './appointment/appointment.module';
     Auth_validate,
     JwtService,
     AppointmentService,
+    EmailService,
+    ReminderCronService,
   ],
 })
 export class AppModule {}

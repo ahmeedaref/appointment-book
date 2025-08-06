@@ -25,4 +25,13 @@ export class AppointmentService {
   async Delete_App(id: string, userId: string) {
     return this.appointmenRepo.Delete_app(id, userId);
   }
+
+  async GetAppointments_At(targetTime: Date) {
+    const start = new Date(targetTime);
+    const end = new Date(targetTime);
+    start.setSeconds(0, 0);
+    end.setSeconds(59, 999);
+
+    return this.appointmenRepo.findAppointmentAtDateRange(start, end);
+  }
 }
