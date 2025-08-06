@@ -9,9 +9,9 @@ export interface appointment_Document extends Document {
   BookedBy: Types.ObjectId | null;
 }
 export enum App_status {
-  avalibale = 'Avaliable',
+  Done = 'Done',
   Booked = 'Booked',
-  Cancalled = 'cancalled',
+  Cancalled = 'Cancalled',
 }
 
 export const appointment_Schema = new Schema<appointment_Document>({

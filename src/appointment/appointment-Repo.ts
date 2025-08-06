@@ -3,44 +3,47 @@ import {
   Injectable,
   NotFoundException,
   UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
 import { App_status, appointment_Document } from './schema/schema-appointment';
-import { Types } from 'mongoose';
 import { time_Document } from 'src/time_slots/schema/schema-time';
+import { updateTime_dto } from 'src/time_slots/Dtos/update-time-dto';
+
 @Injectable()
 export class appointment_Repo {
   constructor(
     @InjectModel('appointment')
     private readonly appointModel: Model<appointment_Document>,
+    @InjectModel('timeSlots') private readonly timeModel: Model<time_Document>,
   ) {}
 
   async create_appointment(data: appointment_Dto, userId: string) {
-    const alreadyBooked = await this.appointModel.findOne({
-      createdBy: new Types.ObjectId(data.createdBy),
-      status: App_status.Booked,
-    });
-    if (alreadyBooked) {
-      throw new ConflictException('this time slot already Booked');
-    }
-    const newAppointment = new this.appointModel({
-      createdBy: data.createdBy,
-      BookedBy: userId,
-      status: App_status.Booked,
-    });
-
-    const timeSlot = await newAppointment.populate<{ createdBy: any }>(
-      'createdBy',
-    );
-    if (!timeSlot.createdBy) {
+    const timeSlot = await this.timeModel.findById(data.createdBy);
+    if (!timeSlot) {
       throw new NotFoundException('Time slot not found');
     }
 
-    newAppointment.Date = timeSlot.createdBy.Date;
-    newAppointment.duration = timeSlot.createdBy.duration;
-    newAppointment.providerId = timeSlot.createdBy.providerId;
+    if (timeSlot.isBooked) {
+      throw new ConflictException('This time slot is already booked');
+    }
+
+    timeSlot.isBooked = true;
+    await timeSlot.save();
+
+    const newAppointment = new this.appointModel({
+      createdBy: timeSlot._id,
+      BookedBy: userId,
+      status: App_status.Booked,
+      Date: timeSlot.Date,
+      duration: timeSlot.duration,
+      startTime: timeSlot.startTime,
+      endTime: timeSlot.endTime,
+      providerId: timeSlot.providerId,
+    });
+
     return newAppointment.save();
   }
 
@@ -61,10 +64,44 @@ export class appointment_Repo {
       .find({
         BookedBy: new mongoose.Types.ObjectId(userId),
       })
-      .populate('createdBy');
+      .populate<{ createdBy: any }>('createdBy');
     if (!appoint) {
       throw new NotFoundException('No time slot appointmented');
     }
     return appoint;
+  }
+
+  async update_appoint(
+    appointmentId: string,
+    userId: string,
+    statusDto: { status: App_status },
+  ) {
+    const { status } = statusDto;
+    const appointment = await this.appointModel
+      .findById(appointmentId)
+      .populate<{ createdBy: any }>('createdBy');
+
+    if (!appointment) {
+      throw new NotFoundException('No appointment found');
+    }
+
+    if (appointment.BookedBy.toString() !== userId) {
+      throw new UnauthorizedException('you can not update other appointment');
+    }
+
+    if (appointment.status !== App_status.Booked) {
+      throw new BadRequestException(
+        'Only booked appointments can be cancelled',
+      );
+    }
+
+    appointment.status = status;
+
+    if (appointment.createdBy) {
+      appointment.createdBy.isBooked = false;
+      await appointment.createdBy.save();
+    }
+
+    return await appointment.save();
   }
 }

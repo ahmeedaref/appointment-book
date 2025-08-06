@@ -255,13 +255,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ0ODU4NzQsImV4cCI6MTc1NDQ4OTQ3NH0.l-WopyU3w29bUicavKB3_RSfTSJkLecyNOLvmNPFTh0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDEyNTUsImV4cCI6MTc1NDUwNDg1NX0.htpZ0z10E94u9kyRdS40adP332Z3IcgoAtuyVeFh2uI",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"createdBy\":\"6892911cd66d1f1e8cd3980c\"\r\n}",
+					"raw": "{\r\n    \"createdBy\":\"6892886e70b693255b951b9c\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -290,7 +290,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NDg2ODYyLCJleHAiOjE3NTQ0OTA0NjJ9.Wt9SMNEchfzh1VtwgH5km7RLbGVA_pwWHIkfKoclJMM",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDEyNTUsImV4cCI6MTc1NDUwNDg1NX0.htpZ0z10E94u9kyRdS40adP332Z3IcgoAtuyVeFh2uI",
 						"type": "text"
 					}
 				],
@@ -304,6 +304,41 @@
 					"path": [
 						"appointment",
 						"689344fa55ed856c93ae5fd1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update appointment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NTA2MzY1LCJleHAiOjE3NTQ1MDk5NjV9.mafA8ltvrF7PAodYNlCGSRv7BD-v5mSF2vaJXmHTnqQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"Cancalled\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appointment/689390b79035e18c6b064af0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appointment",
+						"689390b79035e18c6b064af0"
 					]
 				}
 			},

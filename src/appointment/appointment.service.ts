@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { appointment_Repo } from './appointment-Repo';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
-
+import { App_status } from './schema/schema-appointment';
 @Injectable()
 export class AppointmentService {
   constructor(private readonly appointmenRepo: appointment_Repo) {}
@@ -12,5 +12,13 @@ export class AppointmentService {
 
   async view_appoint(userId: string, requestUser: any) {
     return this.appointmenRepo.ViewAll_appointment(userId, requestUser);
+  }
+
+  async update_app(
+    providerId: string,
+    userId: string,
+    statusDto: { status: App_status },
+  ) {
+    return this.appointmenRepo.update_appoint(providerId, userId, statusDto);
   }
 }
