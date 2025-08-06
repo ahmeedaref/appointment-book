@@ -3,6 +3,8 @@ import {
   Post,
   Body,
   UseGuards,
+  Get,
+  Param,
   Req,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -18,5 +20,12 @@ export class AppointmentController {
     const userId = req?.user?.id;
     if (!userId) throw new UnauthorizedException('User not authenticated');
     return this.appintmentService.create_Appointment(body, userId);
+  }
+  @UseGuards(check_token)
+  @Get('/:id')
+  async Viwe(@Param('id') id: string, @Req() req: any) {
+    const user = req?.user?.id;
+    if (!user) throw new UnauthorizedException('User not Authorized');
+    return this.appintmentService.view_appoint(id, user);
   }
 }

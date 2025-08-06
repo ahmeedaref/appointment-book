@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"ahmed aref\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"name\":\"mohamed ahmed\",\r\n    \"email\":\"mohamed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -255,13 +255,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ0ODE5MzYsImV4cCI6MTc1NDQ4NTUzNn0.ARXo0VUm2GCIckSnwGVeeyHBLTfohXbJEzU1UJh2KFI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ0ODU4NzQsImV4cCI6MTc1NDQ4OTQ3NH0.l-WopyU3w29bUicavKB3_RSfTSJkLecyNOLvmNPFTh0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"createdBy\":\"6892883d70b693255b951b99\"\r\n}",
+					"raw": "{\r\n    \"createdBy\":\"6892911cd66d1f1e8cd3980c\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -278,6 +278,32 @@
 					"path": [
 						"appointment",
 						"Booked-App"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view all apoointment",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NDg2ODYyLCJleHAiOjE3NTQ0OTA0NjJ9.Wt9SMNEchfzh1VtwgH5km7RLbGVA_pwWHIkfKoclJMM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/appointment/689344fa55ed856c93ae5fd1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appointment",
+						"689344fa55ed856c93ae5fd1"
 					]
 				}
 			},
