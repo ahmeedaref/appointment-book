@@ -12,6 +12,9 @@ import { TimeSlotsService } from './time_slots/time_slots.service';
 import { TimeSlotsModule } from './time_slots/time_slots.module';
 import { Auth_validate } from './Guards/validate-Token';
 import { JwtService } from '@nestjs/jwt';
+import { AppointmentController } from './appointment/appointment.controller';
+import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentModule } from './appointment/appointment.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -28,14 +31,16 @@ import { JwtService } from '@nestjs/jwt';
     }),
     AuthModule,
     TimeSlotsModule,
+    AppointmentModule,
   ],
-  controllers: [AppController, AuthController, TimeSlotsController],
+  controllers: [AppController, AuthController, TimeSlotsController, AppointmentController],
   providers: [
     AppService,
     AuthService,
     TimeSlotsService,
     Auth_validate,
     JwtService,
+    AppointmentService,
   ],
 })
 export class AppModule {}
