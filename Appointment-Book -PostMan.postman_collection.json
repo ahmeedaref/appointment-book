@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Dr/ali ahmed\",\r\n    \"email\":\"ali@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"name\":\"ahmed aref\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"ali@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -109,10 +109,16 @@
 					"type": "noauth"
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJEci9hbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ0MzU4MjUsImV4cCI6MTc1NDQzOTQyNX0.D3KNV2Oh7szaJJ_xRovY98c3t0r0NeO9ZIBGWpLkxOc",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"providerId\":\"68923593bd00c2668de21fe0\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"9-8-2025\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\"9:15 pm\",\r\n    \"endTime\":\"9:30 pm\"\r\n}",
+					"raw": "{\r\n    \"providerId\":\"68927c84d7b62e18873ea30f\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"10-8-2025\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\"19:15 pm\",\r\n    \"endTime\":\"19:30 pm\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -144,7 +150,13 @@
 					"type": "noauth"
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJEci9hbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ0Mzc0MTAsImV4cCI6MTc1NDQ0MTAxMH0.NJvTvBh4P0Jj3lag0EMQjd8xjxy0A1R_YKpt8wjBfJ4",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -176,10 +188,16 @@
 					"type": "noauth"
 				},
 				"method": "PATCH",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NDM3NTg2LCJleHAiOjE3NTQ0NDExODZ9.mhg2GveJT3skVixp9uBCEEMw5qEK4y7UJiZbKAamdok",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"Date\":\"9-8-2025\",\r\n\"startTime\":\"21:00\",\r\n\"endTime\":\"21:30\"\r\n}",
+					"raw": "{\r\n\"startTime\":\"21:15\",\r\n\"endTime\":\"21:30\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -187,7 +205,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/time-slots/689248717e448c7ce86ca9c9",
+					"raw": "http://localhost:8080/time-slots/6892883d70b693255b951b99",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -195,7 +213,71 @@
 					"port": "8080",
 					"path": [
 						"time-slots",
-						"689248717e448c7ce86ca9c9"
+						"6892883d70b693255b951b99"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete time slot",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJEci9hbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ0MzM2NjcsImV4cCI6MTc1NDQzNzI2N30.iLbpJ7XlvUTMpFOwlZ38gZEKjl8IItj5DY-ZFC9SCgo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/time-slots/6892886e70b693255b951b9c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots",
+						"6892886e70b693255b951b9c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booked appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ0ODE5MzYsImV4cCI6MTc1NDQ4NTUzNn0.ARXo0VUm2GCIckSnwGVeeyHBLTfohXbJEzU1UJh2KFI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createdBy\":\"6892883d70b693255b951b99\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appointment/Booked-App",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appointment",
+						"Booked-App"
 					]
 				}
 			},

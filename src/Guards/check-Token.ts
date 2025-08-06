@@ -16,7 +16,7 @@ export class check_token implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest() as Request & {
-      User?: any;
+      user?: any;
     };
 
     const token = request.headers['authorization'];
@@ -25,7 +25,7 @@ export class check_token implements CanActivate {
     }
     try {
       const decode = this.authValidate.validateToken(token);
-      request.User = decode;
+      request.user = decode;
       return true;
     } catch (err) {
       throw new BadRequestException(err.message);

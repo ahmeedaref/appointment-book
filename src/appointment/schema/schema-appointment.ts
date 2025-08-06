@@ -5,7 +5,13 @@ export interface appointment_Document extends Document {
   Date: string;
   duration: string;
   createdBy: time_Document;
+  status: string;
   BookedBy: Types.ObjectId | null;
+}
+export enum App_status {
+  avalibale = 'Avaliable',
+  Booked = 'Booked',
+  Cancalled = 'cancalled',
 }
 
 export const appointment_Schema = new Schema<appointment_Document>({
@@ -13,6 +19,11 @@ export const appointment_Schema = new Schema<appointment_Document>({
   Date: { type: String, requied: true },
   duration: { type: String, required: true },
   createdBy: { type: Schema.Types.ObjectId, ref: 'timeSlots', required: true },
+  status: {
+    type: String,
+    enum: Object.values(App_status),
+    default: App_status.Booked,
+  },
   BookedBy: { type: Schema.Types.ObjectId, ref: 'Auth', required: true },
 });
 
