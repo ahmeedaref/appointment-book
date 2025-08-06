@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { appointment_Repo } from './appointment-Repo';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
 import { App_status } from './schema/schema-appointment';
@@ -20,5 +20,9 @@ export class AppointmentService {
     statusDto: { status: App_status },
   ) {
     return this.appointmenRepo.update_appoint(providerId, userId, statusDto);
+  }
+
+  async Delete_App(id: string, userId: string) {
+    return this.appointmenRepo.Delete_app(id, userId);
   }
 }

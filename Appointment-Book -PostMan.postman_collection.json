@@ -48,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"mohamed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -290,7 +290,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDEyNTUsImV4cCI6MTc1NDUwNDg1NX0.htpZ0z10E94u9kyRdS40adP332Z3IcgoAtuyVeFh2uI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDgwNjQsImV4cCI6MTc1NDUxMTY2NH0.1t3DzcEqe9HmAz9jz4iSoUtUCYO0aJ_pK11qnwwzfF0",
 						"type": "text"
 					}
 				],
@@ -329,6 +329,32 @@
 						}
 					}
 				},
+				"url": {
+					"raw": "http://localhost:8080/appointment/689390b79035e18c6b064af0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appointment",
+						"689390b79035e18c6b064af0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete appointment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDgwNjQsImV4cCI6MTc1NDUxMTY2NH0.1t3DzcEqe9HmAz9jz4iSoUtUCYO0aJ_pK11qnwwzfF0",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8080/appointment/689390b79035e18c6b064af0",
 					"protocol": "http",
