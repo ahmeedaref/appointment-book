@@ -104,27 +104,6 @@ export class appointment_Repo {
     return await appointment.save();
   }
 
-  async Delete_app(id: string, userId: string) {
-    const DeleteApp = await this.appointModel
-      .findById(id)
-      .populate<{ createdBy: any }>('createdBy');
-
-    if (!DeleteApp) {
-      throw new NotFoundException('No Appointment Found');
-    }
-    if (DeleteApp.BookedBy.toString() !== userId) {
-      throw new UnauthorizedException(
-        'Not Allowed to Delete other Appointment',
-      );
-    }
-
-    DeleteApp.createdBy.isBooked = false;
-    await DeleteApp.save();
-
-    await this.appointModel.findByIdAndDelete(id);
-    return { message: 'Deleted Appointment Successfully' };
-  }
-
   async findAppointmentAtDateRange(
     start: Date,
     end: Date,

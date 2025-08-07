@@ -8,7 +8,6 @@ import {
   Req,
   UnauthorizedException,
   Put,
-  Delete,
 } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
@@ -41,11 +40,5 @@ export class AppointmentController {
   ) {
     const userId = req.user.id;
     return this.appintmentService.update_app(id, userId, body);
-  }
-  @Delete('/:id')
-  @UseGuards(check_token)
-  async DelteApp(@Param('id') id: string, @Req() req: any) {
-    const userId = req.user.id;
-    return this.appintmentService.Delete_App(id, userId);
   }
 }

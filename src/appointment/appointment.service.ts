@@ -22,10 +22,6 @@ export class AppointmentService {
     return this.appointmenRepo.update_appoint(providerId, userId, statusDto);
   }
 
-  async Delete_App(id: string, userId: string) {
-    return this.appointmenRepo.Delete_app(id, userId);
-  }
-
   async GetAppointments_At(targetTime: Date) {
     const start = new Date(targetTime);
     const end = new Date(targetTime);
