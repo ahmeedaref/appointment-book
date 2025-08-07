@@ -44,6 +44,26 @@ export class time_Repo {
     return time.save();
   }
 
+  async search_Query(query: any): Promise<time_Document[]> {
+    const providerName = query.name;
+    const slots = await this.timeModel
+      .find()
+      .populate({
+        path: 'providerId',
+        match: providerName
+          ? { name: { $regex: providerName, $options: 'i' } }
+          : {},
+        select: 'name',
+      })
+      .exec();
+
+    return slots.filter((slot) => slot.providerId !== null);
+  }
+
+  async GetAll_times() {
+    return this.timeModel.find();
+  }
+
   async getTimes_Provider(
     Id: string,
     requestUser: any,

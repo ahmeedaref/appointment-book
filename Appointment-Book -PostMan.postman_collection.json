@@ -48,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"mohamed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,13 +112,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NTE4MzAzLCJleHAiOjE3NTQ1MjE5MDN9.YxU6mlZh1ekzn6ZOH5cRONXZI4aDzp6MxjGt_8Emruc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJhbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ1NzA3OTIsImV4cCI6MTc1NDU3NDM5Mn0.gpJFMAii0EkMEUHqCxKtntQp6Q1VTgRv8YHCFe853T8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"providerId\":\"68927c84d7b62e18873ea30f\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"7-8-2025\",\r\n    \"duration\":\"5M\",\r\n    \"startTime\":\" 02:15:00.000\",\r\n    \"endTime\":\"02:19:59.999\"\r\n}",
+					"raw": "{\r\n    \"providerId\":\"68923593bd00c2668de21fe0\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"9-8-2025\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\" 20:30:00.000\",\r\n    \"endTime\":\"20:45:00.000\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -365,6 +365,63 @@
 					"path": [
 						"appointment",
 						"689390b79035e18c6b064af0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view all time slots",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTI3Yzg0ZDdiNjJlMTg4NzNlYTMwZiIsIm5hbWUiOiJhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0NTY4OTM1LCJleHAiOjE3NTQ1NzI1MzV9.z5ITVxHnhWJTUcD17jFsQj9jz3Q3YsCRZIi7gb0XEoM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/time-slots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filtered by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1NzEwMDAsImV4cCI6MTc1NDU3NDYwMH0.2SBaRmATyJ1SEZeTfJAzZfvIDYHKeOlbAYodrKjFOAQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/time-slots/search?name=mohamed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"time-slots",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "mohamed"
+						}
 					]
 				}
 			},

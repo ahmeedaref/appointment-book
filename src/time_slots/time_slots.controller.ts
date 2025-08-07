@@ -8,12 +8,13 @@ import {
   Delete,
   Req,
   UseGuards,
-  UnauthorizedException,
+  Query,
 } from '@nestjs/common';
 import { TimeSlotsService } from './time_slots.service';
 import { createtime_dto } from './Dtos/create-time-dto';
 import { updateTime_dto } from './Dtos/update-time-dto';
 import { check_provider } from 'src/Guards/check-Provider';
+import { check_token } from 'src/Guards/check-Token';
 @Controller('time-slots')
 export class TimeSlotsController {
   constructor(private readonly timeService: TimeSlotsService) {}
@@ -23,6 +24,18 @@ export class TimeSlotsController {
     const user = req.user;
     return this.timeService.createTime(body, user);
   }
+  @UseGuards(check_token)
+  @Get('search')
+  async search_Q(@Query() query: any) {
+    return this.timeService.search_query(query);
+  }
+
+  @UseGuards(check_token)
+  @Get()
+  async view_Times() {
+    return this.timeService.view_Times();
+  }
+
   @UseGuards(check_provider)
   @Get('/:id')
   async Get_times(@Param('id') id: string, @Req() req: any) {

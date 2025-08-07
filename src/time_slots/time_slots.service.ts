@@ -14,6 +14,13 @@ export class TimeSlotsService {
 
     return this.timeRepo.create_time(data, requestUser);
   }
+  async search_query(query: any) {
+    return this.timeRepo.search_Query(query);
+  }
+
+  async view_Times() {
+    return this.timeRepo.GetAll_times();
+  }
 
   async get_Time(providerId: string, requestUser: any) {
     return this.timeRepo.getTimes_Provider(providerId, requestUser);
