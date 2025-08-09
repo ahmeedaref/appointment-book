@@ -1,7 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { appointment_Repo } from './appointment-Repo';
 import { appointment_Dto } from './Dtos/create-appointment-dto';
 import { App_status } from './schema/schema-appointment';
+import { toEgyptTime, toUTC } from 'src/common/utiels';
 @Injectable()
 export class AppointmentService {
   constructor(private readonly appointmenRepo: appointment_Repo) {}
@@ -22,12 +23,14 @@ export class AppointmentService {
     return this.appointmenRepo.update_appoint(providerId, userId, statusDto);
   }
 
-  async GetAppointments_At(targetTime: Date) {
-    const start = new Date(targetTime);
-    const end = new Date(targetTime);
+  async GetAppointments_At(from: Date, to: Date) {
+    const start = new Date(from);
+    const end = new Date(to);
     start.setSeconds(0, 0);
     end.setSeconds(59, 999);
+    const startUTC = toUTC(start);
+    const endUTC = toUTC(end);
 
-    return this.appointmenRepo.findAppointmentAtDateRange(start, end);
+    return this.appointmenRepo.findAppointmentAtDateRange(startUTC, endUTC);
   }
 }

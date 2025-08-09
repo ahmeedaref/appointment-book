@@ -1,10 +1,16 @@
-import { IsString, IsMongoId, IsNotEmpty, IsBoolean } from 'class-validator';
+import {
+  IsString,
+  IsMongoId,
+  IsNotEmpty,
+  IsBoolean,
+  IsDateString,
+} from 'class-validator';
 export class createtime_dto {
   @IsMongoId()
   @IsNotEmpty()
   providerId: string;
-  @IsString()
-  Date: string;
+  @IsDateString()
+  Date: Date;
   @IsString()
   duration: string;
   @IsString()

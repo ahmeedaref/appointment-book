@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"mohamed ahmed\",\r\n    \"email\":\"mohamed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"name\":\"mohamed aref\",\r\n    \"email\":\"moharef34@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"mohamed@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"raw": "{\r\n    \"email\":\"ahmedaref127@gmail.com\",\r\n    \"password\":\"ahmeed1902\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,13 +112,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJhbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ1NzA3OTIsImV4cCI6MTc1NDU3NDM5Mn0.gpJFMAii0EkMEUHqCxKtntQp6Q1VTgRv8YHCFe853T8",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTY1OTJkOTNhZTRlNzJhYWUxNjYxYiIsIm5hbWUiOiJEciBhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0Njk5NTQ3LCJleHAiOjE3NTQ3MDMxNDd9.2OwtygqGsywBE6pR2qItcr-2vU1scKCqjy5euCZ1O1Y",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"providerId\":\"68923593bd00c2668de21fe0\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"9-8-2025\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\" 20:30:00.000\",\r\n    \"endTime\":\"20:45:00.000\"\r\n}",
+					"raw": "{\r\n    \"providerId\":\"6896592d93ae4e72aae1661b\",\r\n    \"specialty\":\"heart disease\",\r\n    \"Date\":\"2025-08-09T04:15:00+03:00\",\r\n    \"duration\":\"15M\",\r\n    \"startTime\":\"04:15\",\r\n    \"endTime\":\"04:30\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -229,12 +229,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTIzNTkzYmQwMGMyNjY4ZGUyMWZlMCIsIm5hbWUiOiJEci9hbGkgYWhtZWQiLCJyb2xlIjoicHJvdmlkZXIiLCJpYXQiOjE3NTQ0MzM2NjcsImV4cCI6MTc1NDQzNzI2N30.iLbpJ7XlvUTMpFOwlZ38gZEKjl8IItj5DY-ZFC9SCgo",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTY1OTJkOTNhZTRlNzJhYWUxNjYxYiIsIm5hbWUiOiJEciBhaG1lZCBhcmVmIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzU0Njg3NzIyLCJleHAiOjE3NTQ2OTEzMjJ9.sTBbOWABNnDfJ_qo_3Fo9pJTQZZ1BJv36PHjI8vLD68",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/time-slots/6892886e70b693255b951b9c",
+					"raw": "http://localhost:8080/time-slots/689674b5b3e460041dcc07c4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -242,7 +242,7 @@
 					"port": "8080",
 					"path": [
 						"time-slots",
-						"6892886e70b693255b951b9c"
+						"689674b5b3e460041dcc07c4"
 					]
 				}
 			},
@@ -255,13 +255,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MTc3MDEsImV4cCI6MTc1NDUyMTMwMX0.96BIyWo7zL9Icnvc7NQ3BTCFHG6ca62lWmQlKNHqRb8",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTY1YjE2OTNhZTRlNzJhYWUxNjYyZCIsIm5hbWUiOiJtb2hhbWVkIGFyZWYiLCJyb2xlIjoiVXNlciIsImlhdCI6MTc1NDY5OTUwNywiZXhwIjoxNzU0NzAzMTA3fQ.V-FA3iUDyeDIVtYBuPT-3cW_b3gbFrKdSKP1BMMEQf8",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"createdBy\":\"6893dddb32a0c9394ac5863e\"\r\n}",
+					"raw": "{\r\n    \"createdBy\":\"68969e11c2fa1a24bf16fc42\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -329,32 +329,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8080/appointment/689390b79035e18c6b064af0",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"appointment",
-						"689390b79035e18c6b064af0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete appointment",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OTM0NGZhNTVlZDg1NmM5M2FlNWZkMSIsIm5hbWUiOiJtb2hhbWVkIGFobWVkIiwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NTQ1MDgwNjQsImV4cCI6MTc1NDUxMTY2NH0.1t3DzcEqe9HmAz9jz4iSoUtUCYO0aJ_pK11qnwwzfF0",
-						"type": "text"
-					}
-				],
 				"url": {
 					"raw": "http://localhost:8080/appointment/689390b79035e18c6b064af0",
 					"protocol": "http",

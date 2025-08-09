@@ -5,16 +5,17 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, Mongoose } from 'mongoose';
+import { Model } from 'mongoose';
 import { createtime_dto } from './Dtos/create-time-dto';
 import { time_Document } from './schema/schema-time';
-import mongoose from 'mongoose';
 import { updateTime_dto } from './Dtos/update-time-dto';
+import mongoose from 'mongoose';
 @Injectable()
 export class time_Repo {
   constructor(
     @InjectModel('timeSlots') private readonly timeModel: Model<time_Document>,
   ) {}
+
   async isOverlapping(data: createtime_dto) {
     const { providerId, Date, startTime, endTime } = data;
     const overLapp = await this.timeModel.findOne({
@@ -29,7 +30,6 @@ export class time_Repo {
     });
     return !!overLapp;
   }
-
   async create_time(data: createtime_dto, requestUser: any) {
     const { providerId } = data;
     if (!requestUser) {
@@ -40,7 +40,11 @@ export class time_Repo {
         'Not Allowed to create time slots to other',
       );
     }
-    const time = new this.timeModel(data);
+
+    const dateUTC = new Date(data.Date);
+
+    const time = new this.timeModel({ ...data, Date: dateUTC });
+    console.log('Saved in DB (UTC):', dateUTC);
     return time.save();
   }
 

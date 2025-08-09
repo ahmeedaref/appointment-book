@@ -11,6 +11,7 @@ import { appointment_Dto } from './Dtos/create-appointment-dto';
 import { App_status, appointment_Document } from './schema/schema-appointment';
 import { time_Document } from 'src/time_slots/schema/schema-time';
 
+
 @Injectable()
 export class appointment_Repo {
   constructor(
@@ -105,19 +106,21 @@ export class appointment_Repo {
   }
 
   async findAppointmentAtDateRange(
-    start: Date,
-    end: Date,
+    from: Date,
+    to: Date,
   ): Promise<appointment_Document[]> {
     const date_range = await this.appointModel
       .find({
         Date: {
-          $gt: start,
-          $lt: end,
+          $gte: from,
+          $lte: to,
         },
         status: App_status.Booked,
       })
-      .populate<{ BookedBy: any }>('BookedBy');
-
+      .populate('BookedBy');
+    console.log(`Date Rang from:`, from.toISOString());
+    console.log(`Date Rang to:`, to.toISOString());
+    console.log(date_range);
     return date_range;
   }
 }
